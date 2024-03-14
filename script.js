@@ -5,7 +5,12 @@ function createGrid(){
     return grid;
 }
 function AddCollor(){
-    
+    let numbers="0123456789ABCDEF";
+    let color="#";
+    for(let i=0;i<6;i++){
+        color+=numbers[Math.floor(Math.random()*16)];
+    }
+    return color;
 }
 function Grid(numberdivs){
     let number_of_divs=numberdivs;
@@ -19,6 +24,13 @@ function Grid(numberdivs){
             grid.style.width=divWidth+"px";
             container.appendChild(grid);
     }
+    const Items=document.querySelectorAll("#container div");
+    Items.forEach(function(i){
+        i.addEventListener("mouseover",function(){
+            i.style.backgroundColor=AddCollor();
+        })
+    })
+
 
 }
 Grid(16);
@@ -35,7 +47,6 @@ function callRowsCols(){
     }
 }
  
-
 const select=document.querySelector("#select");
 select.addEventListener("click",callRowsCols);
 
