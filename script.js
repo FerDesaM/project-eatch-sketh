@@ -4,21 +4,23 @@ function createGrid(){
     grid.classList.add("grid");
     return grid;
 }
+function AddCollor(){
+    
+}
 function Grid(numberdivs){
     let number_of_divs=numberdivs;
     let create_divs=number_of_divs**2;
+    let containerWidth=container.clientWidth;
+    let divWidth= containerWidth/number_of_divs;
+
+    container.innerHTML="";
     for(let i=0;i<create_divs;i++){
             const grid=createGrid();
+            grid.style.width=divWidth+"px";
             container.appendChild(grid);
     }
-    const divs=document.querySelectorAll("#container div");
-    divs.forEach(
-        function(div) {
-            div.style.width="calc(100% / " + number_of_divs + ")";
-        }
-    )
-}
 
+}
 Grid(16);
 
 
@@ -34,9 +36,12 @@ function callRowsCols(){
 }
  
 
-const select=document.querySelector("#select")
-select.addEventListener("click",callRowsCols)
+const select=document.querySelector("#select");
+select.addEventListener("click",callRowsCols);
 
-function AddCollor(){
-    
-}
+const resetButtons = document.querySelectorAll(".reset");
+resetButtons.forEach(function(button) {
+    button.addEventListener("click", function() {
+        Grid(16);
+    });
+});

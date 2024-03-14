@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 body {
     text-align: center;
     display: flex;
@@ -39,10 +42,10 @@ button {
     color: white;
     padding: 0;
     margin: 0;
-    width: calc(100% /1);
     aspect-ratio: 1/1;
     text-indent: -9999px;
     box-sizing: border-box;
+    width: calc(100% /1); 
 }
 
 #container div:hover {
